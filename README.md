@@ -18,6 +18,11 @@ The data used are collected from Twitter which tweets written in 2018. Other dat
 * ilang -> hilang
 * maem -> makan
 
+Parameters used based on Hardiana's thesis, which are window size, vector size, epoch. Additional parameters are t1, t2, t3.
+* t1 : how many candidates to generate from model
+* t2 : minimum similarity score based on cosine similary
+* t3 : minimum similarity score based on Jaro-winkler and Leveinshten
+
 
 ### Additional notes
 * The word2Vec model is better to normalize frequent words and is part of the corpus.
