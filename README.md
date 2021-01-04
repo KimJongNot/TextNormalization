@@ -13,7 +13,7 @@ The purpose of this project is to help normalise indonesian text especially text
 * Gensim
 
 ### Overview
-The data used are collected from Twitter which tweets written in 2018. Other data is KBBI (Kamus Besar Bahasa Indonesia) from kbbi kemdikbud. The goal is to use Word Embedding model to normalize text. What expected is to normalize 1 non standard word to be in standard form. For example:
+The data used are collected from Twitter which tweets written in 2018. Other data is KBBI (Kamus Besar Bahasa Indonesia) from kbbi kemdikbud. The goal is to use Word Embedding model to normalize text. What expected is to normalize one non standard word to be in standard form. For example:
 * buanyak -> banyak
 * ilang -> hilang
 * maem -> makan
