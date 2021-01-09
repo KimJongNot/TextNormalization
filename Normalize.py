@@ -13,7 +13,7 @@ fixWords = pd.read_csv('data/fixWords.csv')
 fixWords = dict(zip(fixWords.ragamTB, fixWords.B))
     
 class NormalizeText():
-    def __init__(self, nsw,t1,t2,t3,model,modelType):
+    def __init__(self, nsw,t1,t2,t3, modelType):
         '''
         nsw     : non standard word --string
         model   : either word2vec model or fasttext model --.model
@@ -27,13 +27,15 @@ class NormalizeText():
         self.t1 = t1
         self.t2 = t2
         self.t3 = t3
-        self.model = model
+        self.model_ft  = 'C:/anna/Thesis/FastText/fastTextmodelJktnonEnglish_alpha025_window10_epoch300_size300.model'
+        self.model_w2v = 'C:/anna/Thesis/Models/Word2VecmodelJktnonEnglish_alpha025_window5_epoch200_size150.model'
         self.modelType = modelType
-        if self.modelType == 'ft':
-            self.model = FastText.load(model)
-        elif self.modelType == 'wtv':
-            self.model = Word2Vec.load(model)
-
+        if self.modelType == 'ft' or modelType =='1':
+            self.model = FastText.load(self.model_ft)
+        elif self.modelType == 'wtv' or modelType =='0':
+            self.model = Word2Vec.load(self.model_w2v)
+        else:
+            self.model = FastText.load(self.model_ft)
 
     def fixWord(self, inKbbiNotBaku):
         global fixWords
@@ -115,5 +117,7 @@ class NormalizeText():
         return sw_predicted
 
 if __name__ == '__main__':
-    test = NormalizeText('ujan', 30, 0.85, 0.55, 'C:/anna/Thesis/FastText/fastTextmodelJktnonEnglish_alpha025_window10_epoch300_size300.model', 'ft')
+    
+    typeFile = input("Type '1' to use FastText or '0' to use Word2Vec: " )
+    test = NormalizeText('ujan', 30, 0.85, 0.55, typeFile)
     print(test.NormalizeWord())   
